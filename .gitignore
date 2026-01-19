@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+
+# Jupyter
+notebooks/
+.ipynb_checkpoints/
+
+# Data
+data/raw/
+data/processed/
+data/embeddings/
+
+# Vector DBs
+*.db
+*.sqlite
+*.duckdb
+chromadb/
+faiss_index/
+
+# Logs & temp
+logs/
+tmp/
+
+# OS
+.DS_Store
