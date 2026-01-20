@@ -8,6 +8,7 @@ from sentence_transformers import SentenceTransformer
 from hr_policy_rag_agent.src.chunking import run_chunking_pipeline
 
 
+# TODO: Add ability to incrementally add new chunks
 class FaissVectorStore:
     def __init__(
         self,
@@ -55,7 +56,7 @@ class FaissVectorStore:
             pickle.dump(
                 {
                     "embedding_model": self.embedding_model_name,
-                    "documents": self.document_chunks,
+                    "document_chunks": self.document_chunks,
                 },
                 f,
             )
@@ -71,6 +72,7 @@ class FaissVectorStore:
                     f"Embedding model mismatch: {data['embedding_model']}"
                     f"!= {self.embedding_model_name}"
                 )
+        self.document_chunks = data["document_chunks"]
 
     def load_data(self):
         self.load_index()
